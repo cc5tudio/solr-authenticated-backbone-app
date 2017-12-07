@@ -28,6 +28,8 @@ define([
 
         onLogoutClick: function(evt) {
             evt.preventDefault();
+
+
             app.session.logout({});  // No callbacks needed b/c of session event listening
         },
 
@@ -35,8 +37,6 @@ define([
             evt.preventDefault();
             app.session.removeAccount({});
         },
-
-
         render: function () {
             if(DEBUG) console.log("RENDER::", app.session.user.toJSON(), app.session.toJSON());
             this.$el.html(this.template({ 
