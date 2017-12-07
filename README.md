@@ -19,7 +19,7 @@ Contributions
 
 [backbone-login](http://backbone-login.crunchdevelopment.com) for client-side authentication via Backbone.js AJAX.
 
-[ajax-solr](http://evolvingweb.github.com/ajax-solr/docs/index.html) is a JavaScript library for creating user interfaces to [Apache Solr](http://lucene.apache.org/solr/).
+[ajax-solr](https://github.com/evolvingweb/ajax-solr) is a JavaScript library for creating user interfaces to [Apache Solr](http://lucene.apache.org/solr/).
 
 
 License
