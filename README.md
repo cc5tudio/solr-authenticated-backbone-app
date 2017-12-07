@@ -6,7 +6,7 @@ Light weight single page web app implemented using [Backbone Framework](http://b
 Install & Run
 --------------
 	git clone https://github.com/cc5tudio/solr-authenticated-backbone-app.git
-	cd backbone-login
+	cd solr-authenticated-backbone-app
 	npm install
 	node server.js
 	
