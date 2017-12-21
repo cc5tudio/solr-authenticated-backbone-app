@@ -26,8 +26,7 @@ define([
 ], function () {
   $(function () {
     Manager = new AjaxSolr.Manager({
-      //solrUrl: 'http://localhost:8983/solr/Documents/'
-        solrUrl: 'http://user:KKbnqECIhU60@ec2-34-205-225-171.compute-1.amazonaws.com/solr/Proposals/'
+      solrUrl: 'http://localhost:8983/solr/Documents/'
     });
 
     Manager.addWidget(new AjaxSolr.ResultWidget({
