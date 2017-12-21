@@ -119,16 +119,16 @@ define([
             this.$el.html(this.template({ user: app.session.user.toJSON() }));
 
 
-            //$(function () {
                 var Manager = new AjaxSolr.Manager({
-                    solrUrl: 'http://localhost:8983/solr/Documents/'
-                    //solrUrl: 'http://user:KKbnqECIhU60@ec2-34-205-225-171.compute-1.amazonaws.com/solr/Proposals/'
+                    //solrUrl: 'http://localhost:8983/solr/Documents/'
+                    solrUrl: 'http://ec2-34-205-225-171.compute-1.amazonaws.com/solr/Proposals/'
                 });
 
                 Manager.addWidget(new AjaxSolr.ResultWidget({
                     id: 'result',
                     target: '#docs',
-                    protocol: 'file'
+                    protocol: 'http',
+ 		    urlRoot: 'http://ec2-34-205-225-171.compute-1.amazonaws.com/proposals'
                 }));
 
                 Manager.addWidget(new AjaxSolr.PagerWidget({

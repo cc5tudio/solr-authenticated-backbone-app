@@ -73,17 +73,9 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
 
   template: function (doc) {
     var snippet = '';
-    /*if (doc.text.length > 300) {
-      snippet += doc.dateline + ' ' + doc.text.substring(0, 300);
-      snippet += '<span style="display:none;">' + doc.text.substring(300);
-      snippet += '</span> <a href="#" class="more">more</a>';
-    }
-    else {
-      snippet += doc.dateline + ' ' + doc.text;
-    }*/
 
     var link = this.protocol == "file"? "file://" : "http://";
-    link += doc.resourcename[0];
+    link = this.urlRoot + doc.service_area_descendent_path + '/' + doc.resourcename[0];
 
     var output = '<div><h2>' + doc.resourcename[0].slice(doc.resourcename[0].lastIndexOf('/')+1) + '</h2>';
     output += '<p> <a href="'+link+'">'+doc.resourcename[0]+'</a></p>';

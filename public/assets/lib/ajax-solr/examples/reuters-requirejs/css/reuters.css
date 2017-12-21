@@ -61,7 +61,7 @@ a:hover {
   color: #B4241B;
   font-size: 20px;
   font-weight: 100;
-  letter-spacing: -2px;
+  /*letter-spacing: -2px;*/
   margin-top: 5px;
   margin-bottom: 5px;
   font-family: "Arial";
