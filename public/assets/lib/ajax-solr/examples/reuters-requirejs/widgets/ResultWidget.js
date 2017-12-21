@@ -48,13 +48,16 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
   afterRequest: function () {
     $(this.target).empty();
     for (var i = 0, l = this.manager.response.response.docs.length; i < l; i++) {
-      var doc = this.manager.response.response.docs[i];
-      $(this.target).append(this.template(doc));
+      	var doc = this.manager.response.response.docs[i];
+	var docId = this.manager.response.response.docs[i].id;
+	if(this.manager.response.highlighting[docId].hasOwnProperty("_text_"))
+	{
+		doc.highlighting = this.manager.response.highlighting[docId]._text_;
+	}
+
+      	$(this.target).append(this.template(doc));
 
       var items = [];
-      items = items.concat(this.facetLinks('topics', doc.topics));
-      items = items.concat(this.facetLinks('organisations', doc.organisations));
-      items = items.concat(this.facetLinks('exchanges', doc.exchanges));
 
       try{
           var $links = $('#links_' + doc.id);
@@ -72,15 +75,20 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
   },
 
   template: function (doc) {
-    var snippet = '';
 
     var link = this.protocol == "file"? "file://" : "http://";
     link = this.urlRoot + doc.service_area_descendent_path + '/' + doc.resourcename[0];
 
-    var output = '<div><h2>' + doc.resourcename[0].slice(doc.resourcename[0].lastIndexOf('/')+1) + '</h2>';
-    output += '<p> <a href="'+link+'">'+doc.resourcename[0]+'</a></p>';
+    var output = '<div><h2><a href="'+link+'">' + doc.resourcename[0].slice(doc.resourcename[0].lastIndexOf('/')+1) + '</a></h2>';
+    output += '<p> <a href="'+link+'">'+doc.service_area_descendent_path+'</a></p>';
+    //output += '<p> <a href="'+link+'">'+doc.resourcename[0]+'</a></p>';
     //output += '<p id="links_' + doc.id + '" class="links"></p>';
-    output += '<p>' + snippet + '</p></div>';
+
+    if(doc.hasOwnProperty("highlighting"))
+    {
+    	output += '<p>' + doc.highlighting+ '</p></div>';
+
+    }
     return output;
   },
 

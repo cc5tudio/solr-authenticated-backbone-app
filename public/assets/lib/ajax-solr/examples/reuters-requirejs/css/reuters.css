@@ -70,6 +70,11 @@ a:hover {
 #result a {
   margin-right: 5px;
 }
+#result h2 a {
+    margin-right: 5px;
+    color: #B4241B;
+}
+
 #navigation {
   border-bottom: 1px solid #000;
 }

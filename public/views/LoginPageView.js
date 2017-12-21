@@ -181,7 +181,11 @@ define([
                     'facet.date.start': '2000-01-01T00:00:00.000Z/DAY',
                     'facet.date.end': '2017-01-01T00:00:00.000Z/DAY+1DAY',
                     'facet.date.gap': '+1DAY',
-                    'json.nl': 'map'
+                    'json.nl': 'map',
+		    'hl':'true',
+		    'hl.fl':'_text_',
+		    'hl.simple.pre':'<em>',
+		    'hl.simple.post':'</em>'
                 };
 
                 for (var name in params) {
